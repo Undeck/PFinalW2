@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Principal</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="icon" href="/views/Dog.jpg" type="image/x-icon">
+</head>
+
+<body>
+    <h1>Listar Usuarios</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Acciones</th>
+        </tr>
+        <% users.forEach(user => { %>
+            <tr>
+                <td>
+                    <%= user.id %>
+                </td>
+                <td>
+                    <%= user.name %>
+                </td>
+                <td>
+                    <%= user.email %>
+                </td>
+
+                <td class="acciones">
+                    <a href="/edit/<%= user.id %>" class="btn-editar">Editar</a>
+                    <a href="/delete/<%= user.id %>" class="btn-eliminar">Eliminar</a>
+                </td>
+
+            </tr>
+            <% }); %>
+    </table>
+    <hr>
+    <a href="/agregar" class="btn-agregar">Agregar Usuario</a>
+</body>
+
+</html>
